@@ -15,7 +15,7 @@ module.exports = {
     }
 
     var isBetaOrCanary = ['beta', 'canary'].filter(function(version) {
-      return dep.version.indexOf(version) >= 0;
+      return typeof dep.version === 'string' && dep.version.indexOf(version) >= 0;
     });
 
     return !!(dep.satisfies('>= 2.3.0 < 3.0.0') || isBetaOrCanary.length > 0);
